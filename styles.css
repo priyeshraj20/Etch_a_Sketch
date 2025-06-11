@@ -1,15 +1,14 @@
 #container {
-      display: flex;
-      flex-wrap: wrap;
-      width: 400px;
-      height: 400px;
-      border: 1px solid #000;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  border: 1px solid #000;
+  margin-top: 10px;
+}
 
-   .cell {
-      width: 25px;
-      height: 25px;
-      outline: 1px solid #ccc;  /* use outline instead of border */
-      box-sizing: border-box;
-      background-color: #f9f9f9;
-    }
+.cell {
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  outline: 1px solid #ccc;
+}

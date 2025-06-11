@@ -1,9 +1,36 @@
-const container = document.getElementById("container");
+const container = document.getElementById('container');
+const gridSizeBtn = document.getElementById('grid-size');
 
+const promptGridSize = () => {
+  const input = prompt('Enter grid size (max 100):');
+  const size = parseInt(input, 10);
 
-for (let i = 0; i < 16 * 16; i++)
-{
+  if (isNaN(size) || size < 1 || size > 100) {
+    alert('Invalid input! Please enter a number between 1 and 100.');
+    return;
+  }
+
+  createGrid(size);
+};
+
+const createGrid = (size) => {
+  container.innerHTML = ''; // Clear previous grid
+
+  const containerSize = 400; // px
+  const cellSize = containerSize / size;
+
+  for (let i = 0; i < size * size; i++) {
     const cell = document.createElement('div');
     cell.classList.add('cell');
+    cell.style.width = `${cellSize}px`;
+    cell.style.height = `${cellSize}px`;
+
+    cell.addEventListener('mouseover', () => {
+      cell.style.backgroundColor = 'black';
+    });
+
     container.appendChild(cell);
-}
+  }
+};
+
+gridSizeBtn.addEventListener('click', promptGridSize);
